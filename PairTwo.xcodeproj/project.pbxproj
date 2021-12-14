@@ -15,6 +15,13 @@
 		C56CDCE92768CC23000CC474 /* EmojiSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCE82768CC23000CC474 /* EmojiSetsView.swift */; };
 		C56CDCEB2768CC9A000CC474 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCEA2768CC9A000CC474 /* ScoresView.swift */; };
 		C56CDCEE2768CD60000CC474 /* EmojiSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCED2768CD60000CC474 /* EmojiSetModel.swift */; };
+		C56CDCF02768E35A000CC474 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCEF2768E35A000CC474 /* CardModel.swift */; };
+		C56CDCF32768E3E0000CC474 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCF22768E3E0000CC474 /* GameViewModel.swift */; };
+		C56CDCF62768E5A6000CC474 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCF52768E5A6000CC474 /* Extensions.swift */; };
+		C56CDCFB2768E950000CC474 /* CardifyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCF82768E950000CC474 /* CardifyModifier.swift */; };
+		C56CDCFC2768E950000CC474 /* AspectVGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCF92768E950000CC474 /* AspectVGridView.swift */; };
+		C56CDCFD2768E950000CC474 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCFA2768E950000CC474 /* CardView.swift */; };
+		C56CDD022768EEE1000CC474 /* DataPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD012768EEE1000CC474 /* DataPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +34,13 @@
 		C56CDCE82768CC23000CC474 /* EmojiSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSetsView.swift; sourceTree = "<group>"; };
 		C56CDCEA2768CC9A000CC474 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		C56CDCED2768CD60000CC474 /* EmojiSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSetModel.swift; sourceTree = "<group>"; };
+		C56CDCEF2768E35A000CC474 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		C56CDCF22768E3E0000CC474 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		C56CDCF52768E5A6000CC474 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C56CDCF82768E950000CC474 /* CardifyModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardifyModifier.swift; sourceTree = "<group>"; };
+		C56CDCF92768E950000CC474 /* AspectVGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectVGridView.swift; sourceTree = "<group>"; };
+		C56CDCFA2768E950000CC474 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C56CDD012768EEE1000CC474 /* DataPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +73,7 @@
 		C56CDCD427681006000CC474 /* PairTwo */ = {
 			isa = PBXGroup;
 			children = (
-				C56CDCEC2768CD54000CC474 /* Models */,
+				C56CDCFE2768EBEE000CC474 /* Data */,
 				C56CDCE327681088000CC474 /* Views */,
 				C56CDCD527681007000CC474 /* PairTwoApp.swift */,
 				C56CDCD927681009000CC474 /* Assets.xcassets */,
@@ -79,6 +93,10 @@
 		C56CDCE327681088000CC474 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C56CDCF72768E950000CC474 /* Modifiers */,
+				C56CDD002768EECA000CC474 /* Helpers */,
+				C56CDCF92768E950000CC474 /* AspectVGridView.swift */,
+				C56CDCFA2768E950000CC474 /* CardView.swift */,
 				C56CDCD727681007000CC474 /* PairTwoView.swift */,
 				C56CDCE62768CBA1000CC474 /* GameView.swift */,
 				C56CDCE82768CC23000CC474 /* EmojiSetsView.swift */,
@@ -91,8 +109,51 @@
 			isa = PBXGroup;
 			children = (
 				C56CDCED2768CD60000CC474 /* EmojiSetModel.swift */,
+				C56CDCEF2768E35A000CC474 /* CardModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C56CDCF12768E3BA000CC474 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C56CDCF22768E3E0000CC474 /* GameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C56CDCF42768E595000CC474 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C56CDCF52768E5A6000CC474 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C56CDCF72768E950000CC474 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				C56CDCF82768E950000CC474 /* CardifyModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		C56CDCFE2768EBEE000CC474 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C56CDCEC2768CD54000CC474 /* Models */,
+				C56CDCF12768E3BA000CC474 /* ViewModels */,
+				C56CDCF42768E595000CC474 /* Helpers */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C56CDD002768EECA000CC474 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C56CDD012768EEE1000CC474 /* DataPreview.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,10 +227,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56CDCE92768CC23000CC474 /* EmojiSetsView.swift in Sources */,
+				C56CDCF62768E5A6000CC474 /* Extensions.swift in Sources */,
 				C56CDCD827681007000CC474 /* PairTwoView.swift in Sources */,
+				C56CDCFB2768E950000CC474 /* CardifyModifier.swift in Sources */,
+				C56CDD022768EEE1000CC474 /* DataPreview.swift in Sources */,
+				C56CDCFC2768E950000CC474 /* AspectVGridView.swift in Sources */,
 				C56CDCE72768CBA1000CC474 /* GameView.swift in Sources */,
+				C56CDCF02768E35A000CC474 /* CardModel.swift in Sources */,
+				C56CDCF32768E3E0000CC474 /* GameViewModel.swift in Sources */,
 				C56CDCEB2768CC9A000CC474 /* ScoresView.swift in Sources */,
 				C56CDCD627681007000CC474 /* PairTwoApp.swift in Sources */,
+				C56CDCFD2768E950000CC474 /* CardView.swift in Sources */,
 				C56CDCEE2768CD60000CC474 /* EmojiSetModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

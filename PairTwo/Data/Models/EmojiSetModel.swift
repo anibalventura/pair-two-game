@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct EmojiSet: Identifiable {
     let id: UUID = UUID()
     var name: String
+    var color: Color
+    var emojis: [String]
 }

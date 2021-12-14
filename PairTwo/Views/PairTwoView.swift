@@ -11,23 +11,25 @@ struct PairTwoView: View {
     @State private var tabSelection: String = Tabs.emojis.rawValue
     
     var body: some View {
-        NavigationView {
-            TabView(selection: $tabSelection) {
-                EmojiSetsView()
-                    .tag(Tabs.emojis)
-                    .tabItem {
-                        Image(systemName: "face.smiling.fill")
-                        Text(Tabs.emojis.rawValue)
-                    }
-                
-                ScoresView()
-                    .tag(Tabs.scores)
-                    .tabItem {
-                        Image(systemName: "chart.bar.xaxis")
-                        Text(Tabs.scores.rawValue)
-                    }
-            }
+        TabView(selection: $tabSelection) {
+            EmojiSetsView()
+                .tag(Tabs.emojis)
+                .tabItem {
+                    Image(systemName: "face.smiling.fill")
+                    Text(Tabs.emojis.rawValue)
+                }
+            
+            ScoresView()
+                .tag(Tabs.scores)
+                .tabItem {
+                    Image(systemName: "chart.bar.xaxis")
+                    Text(Tabs.scores.rawValue)
+                }
         }
+    }
+    
+    private func addEmojiSet() {
+        
     }
     
     enum Tabs: String {

@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ScoresView: View {
     var body: some View {
-        Text("Scores View")
-            .navigationTitle("Scores")
+        NavigationView {
+            Text("Scores View")
+                .navigationTitle("Scores")
+        }
     }
 }
 
