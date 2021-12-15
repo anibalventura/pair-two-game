@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class GameViewModel: ObservableObject {
     @Published private var cardsSet: Cards
@@ -26,7 +27,7 @@ class GameViewModel: ObservableObject {
     // MARK: - Intent(s)
     
     func restart() {
-        cardsSet = Cards(numberOfPairsOfCards: emojiSet.emojis.count) { pairIndex in
+        cardsSet = Cards(numberOfPairsOfCards: emojiSet.pairCount) { pairIndex in
             emojiSet.emojis[pairIndex]
         }
     }
@@ -37,5 +38,9 @@ class GameViewModel: ObservableObject {
     
     func getScore() -> Int {
         cardsSet.score
+    }
+    
+    func allCardsFaceUp() -> Bool {
+        cardsSet.allCardsFaceUp()
     }
 }

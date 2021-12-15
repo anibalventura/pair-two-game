@@ -60,4 +60,14 @@ struct Cards {
             }
         }
     }
+    
+    mutating func allCardsFaceUp() -> Bool {
+        var allFaceUp = [Bool]()
+        
+        cards.forEach { card in
+            allFaceUp.append(card.isMatched)
+        }
+        
+        return allFaceUp.allSatisfy{ $0 == true }
+    }
 }

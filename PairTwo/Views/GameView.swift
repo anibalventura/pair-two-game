@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct GameView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @ObservedObject var gameViewModel: GameViewModel
     
     init(_ gameViewModel: GameViewModel) {
         self.gameViewModel = gameViewModel
     }
+    
+    @State private var gameCompleteAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -27,6 +30,7 @@ struct GameView: View {
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: ViewConstants.chooseAnimDuration)) {
                                 gameViewModel.choose(card)
+                                gameCompleteAlert = gameViewModel.allCardsFaceUp()
                             }
                         }
                 }
@@ -45,6 +49,17 @@ struct GameView: View {
                     withAnimation(Animation.spring()) {
                         gameViewModel.restart()
                     }
+                }
+            }
+        }
+        .alert("Congratulations! Scrore: \(gameViewModel.getScore())", isPresented: $gameCompleteAlert) {
+            Button("Ok", role: .cancel) {
+                gameViewModel.restart()
+                presentationMode.wrappedValue.dismiss()
+            }
+            Button("New game") {
+                withAnimation {
+                    gameViewModel.restart()
                 }
             }
         }
