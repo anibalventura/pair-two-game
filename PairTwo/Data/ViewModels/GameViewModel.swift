@@ -9,10 +9,10 @@ import Foundation
 
 class GameViewModel: ObservableObject {
     @Published private(set) var cardsSet: Cards
-    private(set) var emojiSet: EmojiSet
+    private(set) var emojiSet: EmojiSetItem
     
-    init(_ emojiSet: EmojiSet) {
-        cardsSet = Cards(numberOfPairsOfCards: emojiSet.emojis.count) { pairIndex in
+    init(_ emojiSet: EmojiSetItem) {
+        cardsSet = Cards(numberOfPairsOfCards: emojiSet.pairCount) { pairIndex in
             emojiSet.emojis[pairIndex]
         }
         

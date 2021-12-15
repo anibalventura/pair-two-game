@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C528B5FA27694BDE0070227A /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C528B5F927694BDE0070227A /* EmojiPicker.swift */; };
 		C56CDCD627681007000CC474 /* PairTwoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCD527681007000CC474 /* PairTwoApp.swift */; };
 		C56CDCD827681007000CC474 /* PairTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCD727681007000CC474 /* PairTwoView.swift */; };
 		C56CDCDA27681009000CC474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C56CDCD927681009000CC474 /* Assets.xcassets */; };
@@ -22,9 +23,12 @@
 		C56CDCFC2768E950000CC474 /* AspectVGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCF92768E950000CC474 /* AspectVGridView.swift */; };
 		C56CDCFD2768E950000CC474 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCFA2768E950000CC474 /* CardView.swift */; };
 		C56CDD022768EEE1000CC474 /* DataPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD012768EEE1000CC474 /* DataPreview.swift */; };
+		C56CDD042768F4E2000CC474 /* EmojiSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD032768F4E2000CC474 /* EmojiSetViewModel.swift */; };
+		C56CDD082768FBAD000CC474 /* AddEmojiSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C528B5F927694BDE0070227A /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		C56CDCD227681006000CC474 /* PairTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56CDCD527681007000CC474 /* PairTwoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairTwoApp.swift; sourceTree = "<group>"; };
 		C56CDCD727681007000CC474 /* PairTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairTwoView.swift; sourceTree = "<group>"; };
@@ -41,6 +45,8 @@
 		C56CDCF92768E950000CC474 /* AspectVGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectVGridView.swift; sourceTree = "<group>"; };
 		C56CDCFA2768E950000CC474 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C56CDD012768EEE1000CC474 /* DataPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPreview.swift; sourceTree = "<group>"; };
+		C56CDD032768F4E2000CC474 /* EmojiSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSetViewModel.swift; sourceTree = "<group>"; };
+		C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiSetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 			children = (
 				C56CDCFE2768EBEE000CC474 /* Data */,
 				C56CDCE327681088000CC474 /* Views */,
+				C56CDCF42768E595000CC474 /* Helpers */,
 				C56CDCD527681007000CC474 /* PairTwoApp.swift */,
 				C56CDCD927681009000CC474 /* Assets.xcassets */,
 				C56CDCDB27681009000CC474 /* Preview Content */,
@@ -101,6 +108,7 @@
 				C56CDCE62768CBA1000CC474 /* GameView.swift */,
 				C56CDCE82768CC23000CC474 /* EmojiSetsView.swift */,
 				C56CDCEA2768CC9A000CC474 /* ScoresView.swift */,
+				C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C56CDCF22768E3E0000CC474 /* GameViewModel.swift */,
+				C56CDD032768F4E2000CC474 /* EmojiSetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -143,7 +152,6 @@
 			children = (
 				C56CDCEC2768CD54000CC474 /* Models */,
 				C56CDCF12768E3BA000CC474 /* ViewModels */,
-				C56CDCF42768E595000CC474 /* Helpers */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C56CDD012768EEE1000CC474 /* DataPreview.swift */,
+				C528B5F927694BDE0070227A /* EmojiPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -228,7 +237,9 @@
 			files = (
 				C56CDCE92768CC23000CC474 /* EmojiSetsView.swift in Sources */,
 				C56CDCF62768E5A6000CC474 /* Extensions.swift in Sources */,
+				C56CDD042768F4E2000CC474 /* EmojiSetViewModel.swift in Sources */,
 				C56CDCD827681007000CC474 /* PairTwoView.swift in Sources */,
+				C56CDD082768FBAD000CC474 /* AddEmojiSetView.swift in Sources */,
 				C56CDCFB2768E950000CC474 /* CardifyModifier.swift in Sources */,
 				C56CDD022768EEE1000CC474 /* DataPreview.swift in Sources */,
 				C56CDCFC2768E950000CC474 /* AspectVGridView.swift in Sources */,
@@ -238,6 +249,7 @@
 				C56CDCEB2768CC9A000CC474 /* ScoresView.swift in Sources */,
 				C56CDCD627681007000CC474 /* PairTwoApp.swift in Sources */,
 				C56CDCFD2768E950000CC474 /* CardView.swift in Sources */,
+				C528B5FA27694BDE0070227A /* EmojiPicker.swift in Sources */,
 				C56CDCEE2768CD60000CC474 /* EmojiSetModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

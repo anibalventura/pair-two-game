@@ -8,9 +8,10 @@
 import Foundation
 
 struct DataPreview {
-    static let emojiSet: EmojiSet = EmojiSet(
+    static let emojiSet: EmojiSetItem = EmojiSetItem(
         name: "Cars",
         color: .blue,
+        pairCount: 7,
         emojis: ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑"]
     )
 }

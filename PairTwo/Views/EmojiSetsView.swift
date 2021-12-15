@@ -8,26 +8,17 @@
 import SwiftUI
 
 struct EmojiSetsView: View {
-    private let emojiSets: [EmojiSet] = [
-        EmojiSet(
-            name: "Cars",
-            color: .blue,
-            emojis: ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑"]
-        ),
-        EmojiSet(
-            name: "Objects",
-            color: .brown,
-            emojis: ["📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"]
-        )
-    ]
+    @ObservedObject private var emojiSetViewModel: EmojiSetViewModel = EmojiSetViewModel()
+    @State private var showAddSet: Bool = false
+    @State private var setToEdit: EmojiSetItem?
     
     var body: some View {
         NavigationView {
-            List(emojiSets) { emojiSet in
+            List(emojiSetViewModel.emojiSets.sets) { emojiSet in
                 NavigationLink(destination: GameView(GameViewModel(emojiSet))) {
                     VStack(alignment: .leading) {
                         Text(emojiSet.name)
-                            .font(.title2)
+                            .font(.title3)
                             .bold()
                             .foregroundColor(emojiSet.color)
                         
@@ -41,29 +32,51 @@ struct EmojiSetsView: View {
                     }
                 }
                 .padding(.bottom, 3)
+                .swipeActions(allowsFullSwipe: false) {
+                    Button {
+                        setToEdit = emojiSet
+                        showAddSet.toggle()
+                    } label: {
+                        Label("Edit", systemImage: "pencil")
+                    }
+                    .tint(.orange)
+                    
+                    Button(role: .destructive) {
+                        withAnimation(Animation.linear) {
+                            emojiSetViewModel.delete(emojiSet)
+                        }
+                    } label: {
+                        Label("Delete", systemImage: "trash.fill")
+                    }
+                }
             }
             .navigationTitle("Pair Two")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: addEmojiSet) {
+                    Button(action: {
+                        showAddSet.toggle()
+                    }) {
                         Image(systemName: "plus")
                     }
                 }
+            }
+            .sheet(isPresented: $showAddSet) {
+                AddEmojiSetView(viewModel: emojiSetViewModel, setToEdit: setToEdit)
             }
         }
     }
     
     private struct ViewContants {
-        static let spacerLength: CGFloat = 4
-    }
-    
-    private func addEmojiSet() {
-        
+        static let spacerLength: CGFloat = 5
     }
 }
 
 struct EmojiSetsView_Previews: PreviewProvider {
     static var previews: some View {
         EmojiSetsView()
+            .preferredColorScheme(.dark)
+        
+        EmojiSetsView()
+            .preferredColorScheme(.light)
     }
 }
