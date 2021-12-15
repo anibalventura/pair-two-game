@@ -16,7 +16,7 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            AspectVGridView(items: gameViewModel.cardsSet.cards, aspectRatio: ViewConstants.gridAspectRatio) { card in
+            AspectVGridView(items: gameViewModel.cards, aspectRatio: ViewConstants.gridAspectRatio) { card in
                 if card.isMatched && !card.isFaceUp {
                     Color.clear
                 } else {
@@ -59,12 +59,19 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        let gameViewModel = GameViewModel(DataPreview.emojiSet)
+        let previreGameViewModel = GameViewModel(EmojiSetItem(
+            name: "Random",
+            color: .red,
+            pairCount: 12,
+            emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨",
+                     "🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓",
+                     "📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"]
+        ))
         
-        GameView(gameViewModel)
+        GameView(previreGameViewModel)
             .preferredColorScheme(.dark)
         
-        GameView(gameViewModel)
+        GameView(previreGameViewModel)
             .preferredColorScheme(.light)
     }
 }

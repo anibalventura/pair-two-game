@@ -23,32 +23,30 @@ struct CardView: View {
         }
     }
     
-    private func scale(thatFits size: CGSize) -> CGFloat {
-        min(size.width, size.height) / (ViewConstants.cardFontSize / ViewConstants.cardFontScale)
-    }
-    
     private struct ViewConstants {
         static let cardFontScale: CGFloat = 0.7
         static let cardFontSize: CGFloat = 32
         static let cardMatchAnimDuration: Double = 1.5
     }
+    
+    private func scale(thatFits size: CGSize) -> CGFloat {
+        min(size.width, size.height) / (ViewConstants.cardFontSize / ViewConstants.cardFontScale)
+    }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        let cardDark = CardItem(isFaceUp: false, content: "💩")
+        let previewCard = CardItem(isFaceUp: true, content: "💩")
         
-        CardView(card: cardDark)
+        CardView(card: previewCard)
             .preferredColorScheme(.dark)
             .frame(
                 width: PreviewConstants.width,
                 height: PreviewConstants.height)
             .previewLayout(.sizeThatFits)
             .padding()
-        
-        let cardLight = CardItem(isFaceUp: true, content: "💩")
 
-        CardView(card: cardLight)
+        CardView(card: previewCard)
             .preferredColorScheme(.light)
             .frame(
                 width: PreviewConstants.width,

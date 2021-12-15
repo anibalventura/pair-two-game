@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+// Helper method to initiate a Emoji TextField.
 class UIEmojiTextField: UITextField {
     
     override func awakeFromNib() {

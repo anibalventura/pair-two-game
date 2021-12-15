@@ -9,12 +9,12 @@ import SwiftUI
 
 struct EmojiSetsView: View {
     @ObservedObject private var emojiSetViewModel: EmojiSetViewModel = EmojiSetViewModel()
-    @State private var showAddSet: Bool = false
-    @State private var setToEdit: EmojiSetItem?
+    @State private var showAddEditSheet: Bool = false
+    @State private var itemToEdit: EmojiSetItem?
     
     var body: some View {
         NavigationView {
-            List(emojiSetViewModel.emojiSets.sets) { emojiSet in
+            List(emojiSetViewModel.sets) { emojiSet in
                 NavigationLink(destination: GameView(GameViewModel(emojiSet))) {
                     VStack(alignment: .leading) {
                         Text(emojiSet.name)
@@ -33,8 +33,8 @@ struct EmojiSetsView: View {
                 .padding(.bottom, 4)
                 .swipeActions(allowsFullSwipe: false) {
                     Button {
-                        showAddSet.toggle()
-                        setToEdit = emojiSet
+                        showAddEditSheet.toggle()
+                        itemToEdit = emojiSet
                     } label: {
                         Label("Edit", systemImage: "pencil")
                     }
@@ -53,15 +53,15 @@ struct EmojiSetsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        showAddSet.toggle()
+                        showAddEditSheet.toggle()
                     }) {
                         Image(systemName: "plus")
                     }
                 }
             }
         }
-        .sheet(isPresented: $showAddSet, onDismiss: { setToEdit = nil }) {
-            AddEmojiSetView(viewModel: emojiSetViewModel, setToEdit: setToEdit)
+        .sheet(isPresented: $showAddEditSheet, onDismiss: { itemToEdit = nil }) {
+            AddEmojiSetView(viewModel: emojiSetViewModel, itemToEdit: itemToEdit)
         }
     }
     

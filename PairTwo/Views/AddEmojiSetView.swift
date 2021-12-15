@@ -11,40 +11,46 @@ import Foundation
 struct AddEmojiSetView: View {
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject private var viewModel: EmojiSetViewModel
-    private var setToEdit: EmojiSetItem?
+    private var itemToEdit: EmojiSetItem?
     
     @State private var name: String
-    @State private var emojis: [String]
+    @State private var emojisInSet: [String]
     @State private var newEmojis: String = ""
     @State private var pairCount: Int
     @State private var color: Color
     
-    init(viewModel: EmojiSetViewModel, setToEdit: EmojiSetItem?) {
+    init(viewModel: EmojiSetViewModel, itemToEdit: EmojiSetItem?) {
         self.viewModel = viewModel
-        self.setToEdit = setToEdit
+        self.itemToEdit = itemToEdit
         
-        self._name = State(initialValue: setToEdit?.name ?? "")
-        self._emojis = State(initialValue: setToEdit?.emojis ?? [])
-        self._pairCount = State(initialValue: setToEdit?.pairCount ?? 0)
-        self._color = State(initialValue: setToEdit?.color ?? .red)
+        self._name = State(initialValue: itemToEdit?.name ?? "")
+        self._emojisInSet = State(initialValue: itemToEdit?.emojis ?? [])
+        self._pairCount = State(initialValue: itemToEdit?.pairCount ?? 0)
+        self._color = State(initialValue: itemToEdit?.color ?? .red)
     }
     
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Set name")) {
-                    TextField("Name", text: $name)
+                Section(header: Text("Set")) {
+                    TextField("Insert name", text: $name)
+                    
+                    if itemToEdit != nil {
+                        Stepper("\(pairCount) Pairs", value: $pairCount, in: 0...emojisInSet.count)
+                    }
+                    
+                    ColorPicker("Color", selection: $color, supportsOpacity: false)
                 }
                 
-                if setToEdit != nil {
+                if itemToEdit != nil {
                     Section(header: Text("Emojis - Tap to remove")) {
                         LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 7), spacing: 10) {
-                            ForEach(emojis, id: \.self) { emoji in
+                            ForEach(emojisInSet, id: \.self) { emoji in
                                 Text(emoji)
                                     .onTapGesture {
                                         withAnimation(.easeOut) {
-                                            if let index = emojis.firstIndex(of: emoji) {
-                                                emojis.remove(at: index)
+                                            if let index = emojisInSet.firstIndex(of: emoji) {
+                                                emojisInSet.remove(at: index)
                                             }
                                         }
                                     }
@@ -55,20 +61,10 @@ struct AddEmojiSetView: View {
                 }
                 
                 Section(header: Text("Add emoji")) {
-                    EmojiTextField(text: $newEmojis, placeholder: "Emoji")
-                }
-                
-                if setToEdit != nil {
-                    Section(header: Text("Pairs count")) {
-                        Stepper("\(pairCount) Pairs", value: $pairCount, in: 0...emojis.count)
-                    }
-                }
-                
-                Section(header: Text("Color")) {
-                    ColorPicker("Set color", selection: $color, supportsOpacity: false)
+                    EmojiTextField(text: $newEmojis, placeholder: "Insert emojis")
                 }
             }
-            .navigationTitle("Emoji set")
+            .navigationTitle(itemToEdit != nil ? "Edit" : "Add")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 // Make keyboard dismissable with swipe down.
@@ -76,54 +72,67 @@ struct AddEmojiSetView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Dismiss") {
+                    Button("Cancel") {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done", action: done)
+                    Button("Save") {
+                        saveItem()
+                        
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
             }
         }
     }
     
-    private func done() {
-        let emojisWiouthDuplicates = self.newEmojis.squeezed.map { String($0) }
-        let emojisArray = emojisWiouthDuplicates.map { String($0) }
-        let finalEmojis = emojisArray + self.emojis
+    private func saveItem() {
+        let removeDuplicatedEmojis = self.newEmojis.squeezed.map { String($0) }
+        let stringToArray = removeDuplicatedEmojis.map { String($0) }
+        let emojisArray = stringToArray + self.emojisInSet
+        let editedPairCount = emojisArray.count < self.pairCount ? emojisArray.count : self.pairCount
         
-        if setToEdit != nil {
+        // Edit item.
+        if itemToEdit != nil {
             let newSet = EmojiSetItem(
-                id: setToEdit!.id,
+                id: itemToEdit!.id,
                 name: self.name,
                 color: self.color,
-                pairCount: finalEmojis.count < self.pairCount ? finalEmojis.count : self.pairCount,
-                emojis: finalEmojis)
+                pairCount: editedPairCount,
+                emojis: emojisArray)
             
             viewModel.edit(newSet)
-        } else {
+        }
+        // Save item.
+        else {
             let newSet = EmojiSetItem(
                 name: self.name,
                 color: self.color,
-                pairCount: finalEmojis.count,
-                emojis: finalEmojis)
+                pairCount: emojisArray.count,
+                emojis: emojisArray)
             
             viewModel.add(newSet)
         }
-        
-        presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct AddEmojiSetView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel: EmojiSetViewModel = EmojiSetViewModel()
+        let previewEmojiSetViewModel: EmojiSetViewModel = EmojiSetViewModel()
+        let previewEmojiSet: EmojiSetItem = EmojiSetItem(
+            name: "Random",
+            color: .red,
+            pairCount: 12,
+            emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨",
+                     "🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓",
+                     "📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"])
 
-        AddEmojiSetView(viewModel: viewModel, setToEdit: DataPreview.emojiSet)
+        AddEmojiSetView(viewModel: previewEmojiSetViewModel, itemToEdit: previewEmojiSet)
             .preferredColorScheme(.dark)
 
-        AddEmojiSetView(viewModel: viewModel, setToEdit: DataPreview.emojiSet)
+        AddEmojiSetView(viewModel: previewEmojiSetViewModel, itemToEdit: previewEmojiSet)
             .preferredColorScheme(.light)
     }
 }

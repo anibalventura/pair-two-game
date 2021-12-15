@@ -11,7 +11,7 @@ import SwiftUI
 struct PairTwoApp: App {
     var body: some Scene {
         WindowGroup {
-            PairTwoView()
+            EmojiSetsView()
         }
     }
 }

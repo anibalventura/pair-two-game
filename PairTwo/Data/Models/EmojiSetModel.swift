@@ -21,7 +21,7 @@ struct EmojiSets {
         EmojiSetItem(
             name: "Random",
             color: .red,
-            pairCount: 3,
+            pairCount: 12,
             emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨",
                      "🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓",
                      "📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"]
@@ -39,16 +39,10 @@ struct EmojiSets {
             emojis: ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓"]
         ),
         EmojiSetItem(
-            name: "Objects",
-            color: .brown,
-            pairCount: 4,
-            emojis: ["📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"]
-        ),
-        EmojiSetItem(
-            name: "Cars",
+            name: "Vehicles",
             color: .blue,
             pairCount: 7,
-            emojis: ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑"]
+            emojis: ["🚗", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚲"]
         ),
         EmojiSetItem(
             name: "Sports",

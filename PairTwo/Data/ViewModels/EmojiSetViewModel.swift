@@ -8,19 +8,23 @@
 import Foundation
 
 class EmojiSetViewModel: ObservableObject {
-    @Published private(set) var emojiSets: EmojiSets = EmojiSets()
+    @Published private var model: EmojiSets = EmojiSets()
+    
+    var sets: [EmojiSetItem] {
+        return model.sets
+    }
     
     // MARK: - Intent(s)
     
     func add(_ emojiSet: EmojiSetItem) {
-        emojiSets.add(emojiSet)
+        model.add(emojiSet)
     }
     
     func edit(_ emojiSet: EmojiSetItem) {
-        emojiSets.edit(emojiSet)
+        model.edit(emojiSet)
     }
     
     func delete(_ emojiSet: EmojiSetItem) {
-        emojiSets.delete(emojiSet)
+        model.delete(emojiSet)
     }
 }

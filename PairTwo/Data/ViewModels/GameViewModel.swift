@@ -8,7 +8,7 @@
 import Foundation
 
 class GameViewModel: ObservableObject {
-    @Published private(set) var cardsSet: Cards
+    @Published private var cardsSet: Cards
     private(set) var emojiSet: EmojiSetItem
     
     init(_ emojiSet: EmojiSetItem) {
@@ -17,6 +17,10 @@ class GameViewModel: ObservableObject {
         }
         
         self.emojiSet = emojiSet
+    }
+    
+    var cards: [CardItem] {
+        return cardsSet.cards
     }
     
     // MARK: - Intent(s)
