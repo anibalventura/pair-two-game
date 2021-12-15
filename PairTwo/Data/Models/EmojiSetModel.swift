@@ -8,12 +8,16 @@
 import Foundation
 import SwiftUI
 
-struct EmojiSetItem: Identifiable, Equatable {
+struct EmojiSetItem: Identifiable, Comparable {
     var id: UUID = UUID()
     var name: String
     var color: Color
     var pairCount: Int
     var emojis: [String]
+    
+    static func < (lhs: EmojiSetItem, rhs: EmojiSetItem) -> Bool {
+        lhs.name < rhs.name
+    }
 }
 
 struct EmojiSets {
@@ -22,9 +26,9 @@ struct EmojiSets {
             name: "Random",
             color: .red,
             pairCount: 12,
-            emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨",
-                     "🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓",
-                     "📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"]
+            emojis: ["🐶", "🐱", "🐭", "🍊",  "📱", "📲", "💻", "🍋", "🍌",
+                     "🍉", "🍇", "🐹", "🚙", "🚌", "🚎", "🐻", "🐼", "🐨",
+                     "🍏", "🍎", "🍐", "🍓", "📁", "⌚", "⌨️",  "🖨", "🖱"]
         ),
         EmojiSetItem(
             name: "Animals",

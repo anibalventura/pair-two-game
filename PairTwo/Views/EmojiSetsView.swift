@@ -14,7 +14,7 @@ struct EmojiSetsView: View {
     
     var body: some View {
         NavigationView {
-            List(emojiSetViewModel.sets) { emojiSet in
+            List(emojiSetViewModel.sets.sorted()) { emojiSet in
                 NavigationLink(destination: GameView(GameViewModel(emojiSet))) {
                     VStack(alignment: .leading) {
                         Text(emojiSet.name)
