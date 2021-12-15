@@ -25,17 +25,16 @@ struct EmojiSetsView: View {
                         Spacer(minLength: ViewContants.spacerLength)
                         
                         HStack {
-                            ForEach(emojiSet.emojis, id: \.self) { emoji in
-                                Text(emoji)
-                            }
+                            Text(emojiSet.emojis.joined(separator: " "))
+                                .lineLimit(1)
                         }
                     }
                 }
-                .padding(.bottom, 3)
+                .padding(.bottom, 4)
                 .swipeActions(allowsFullSwipe: false) {
                     Button {
-                        setToEdit = emojiSet
                         showAddSet.toggle()
+                        setToEdit = emojiSet
                     } label: {
                         Label("Edit", systemImage: "pencil")
                     }
@@ -60,9 +59,9 @@ struct EmojiSetsView: View {
                     }
                 }
             }
-            .sheet(isPresented: $showAddSet) {
-                AddEmojiSetView(viewModel: emojiSetViewModel, setToEdit: setToEdit)
-            }
+        }
+        .sheet(isPresented: $showAddSet, onDismiss: { setToEdit = nil }) {
+            AddEmojiSetView(viewModel: emojiSetViewModel, setToEdit: setToEdit)
         }
     }
     

@@ -101,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				C56CDCF72768E950000CC474 /* Modifiers */,
-				C56CDD002768EECA000CC474 /* Helpers */,
 				C56CDCF92768E950000CC474 /* AspectVGridView.swift */,
 				C56CDCFA2768E950000CC474 /* CardView.swift */,
 				C56CDCD727681007000CC474 /* PairTwoView.swift */,
@@ -134,6 +133,8 @@
 		C56CDCF42768E595000CC474 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C56CDD012768EEE1000CC474 /* DataPreview.swift */,
+				C528B5F927694BDE0070227A /* EmojiPicker.swift */,
 				C56CDCF52768E5A6000CC474 /* Extensions.swift */,
 			);
 			path = Helpers;
@@ -154,15 +155,6 @@
 				C56CDCF12768E3BA000CC474 /* ViewModels */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		C56CDD002768EECA000CC474 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C56CDD012768EEE1000CC474 /* DataPreview.swift */,
-				C528B5F927694BDE0070227A /* EmojiPicker.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

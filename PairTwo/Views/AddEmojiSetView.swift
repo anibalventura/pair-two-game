@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct AddEmojiSetView: View {
     @Environment(\.presentationMode) private var presentationMode
@@ -37,11 +38,19 @@ struct AddEmojiSetView: View {
                 
                 if setToEdit != nil {
                     Section(header: Text("Emojis - Tap to remove")) {
-                        HStack {
+                        LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 7), spacing: 10) {
                             ForEach(emojis, id: \.self) { emoji in
                                 Text(emoji)
+                                    .onTapGesture {
+                                        withAnimation(.easeOut) {
+                                            if let index = emojis.firstIndex(of: emoji) {
+                                                emojis.remove(at: index)
+                                            }
+                                        }
+                                    }
                             }
                         }
+                        .padding([.top, .bottom], 10)
                     }
                 }
                 
@@ -61,6 +70,10 @@ struct AddEmojiSetView: View {
             }
             .navigationTitle("Emoji set")
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                // Make keyboard dismissable with swipe down.
+                UIScrollView.appearance().keyboardDismissMode = .interactive
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Dismiss") {
@@ -85,8 +98,8 @@ struct AddEmojiSetView: View {
                 id: setToEdit!.id,
                 name: self.name,
                 color: self.color,
-                pairCount: self.pairCount,
-                emojis: self.emojis)
+                pairCount: finalEmojis.count < self.pairCount ? finalEmojis.count : self.pairCount,
+                emojis: finalEmojis)
             
             viewModel.edit(newSet)
         } else {

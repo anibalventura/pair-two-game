@@ -19,6 +19,14 @@ struct EmojiSetItem: Identifiable, Equatable {
 struct EmojiSets {
     private(set) var sets: [EmojiSetItem] = [
         EmojiSetItem(
+            name: "Random",
+            color: .red,
+            pairCount: 3,
+            emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨",
+                     "🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓",
+                     "📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"]
+        ),
+        EmojiSetItem(
             name: "Animals",
             color: .yellow,
             pairCount: 3,
