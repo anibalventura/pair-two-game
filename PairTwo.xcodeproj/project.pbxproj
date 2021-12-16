@@ -104,9 +104,7 @@
 		C56CDCE327681088000CC474 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C56CDCF72768E950000CC474 /* Modifiers */,
-				C56CDCF92768E950000CC474 /* AspectVGridView.swift */,
-				C56CDCFA2768E950000CC474 /* CardView.swift */,
+				C56CDCF72768E950000CC474 /* Styles */,
 				C56CDCE62768CBA1000CC474 /* GameView.swift */,
 				C56CDCE82768CC23000CC474 /* EmojiSetsView.swift */,
 				C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */,
@@ -142,12 +140,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		C56CDCF72768E950000CC474 /* Modifiers */ = {
+		C56CDCF72768E950000CC474 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				C56CDCF92768E950000CC474 /* AspectVGridView.swift */,
+				C56CDCFA2768E950000CC474 /* CardView.swift */,
 				C56CDCF82768E950000CC474 /* CardifyModifier.swift */,
 			);
-			path = Modifiers;
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		C56CDCFE2768EBEE000CC474 /* Data */ = {

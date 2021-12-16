@@ -38,9 +38,6 @@
 /* Header of add emoji section. */
 "add-emoji" = "Agregar emoji";
 
-/* Placeholder for insert emojis. */
-"insert-emojis" = "Insertar emojis";
-
 /* Add emoji view title. */
 "add-set" = "Agrega nuevo grupo";
 
@@ -67,7 +64,7 @@
 "congratulations %lld" = "Felicidades! Puntaje: %lld";
 
 /* Alert dialog Ok button. */
-"ok" = "Ok";
+"ok" = "De acuerdo";
 
 /* Alert dialog new game button. */
 "new-game" = "Nuevo juego";

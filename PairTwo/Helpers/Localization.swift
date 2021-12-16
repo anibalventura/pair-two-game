@@ -5,86 +5,35 @@
 //  Created by Anibal Ventura on 16/12/21.
 //
 
+import SwiftUI
+
 enum Localization {
     /* Emoji Sets View. */
     
-    static var appName: String {
-        String(localized: "app-name", comment: "The name of the app.")
-    }
-    
-    static var delete: String {
-        String(localized: "delete", comment: "Delete button on swipe.")
-    }
-    
-    static var edit: String {
-        String(localized: "edit", comment: "Edit button on swipe.")
-    }
+    static let appName: LocalizedStringKey = LocalizedStringKey("app-name")
+    static let delete: LocalizedStringKey = LocalizedStringKey("delete")
+    static let edit: LocalizedStringKey = LocalizedStringKey("edit")
     
     /* Add Emoji Set View */
     
-    static var set: String {
-        String(localized: "set", comment: "Header of first form group.")
-    }
+    static let set: LocalizedStringKey = LocalizedStringKey("set")
+    static let insertName: LocalizedStringKey = LocalizedStringKey("insert-name")
+    static let color: LocalizedStringKey = LocalizedStringKey("color")
+    static let emojisList: LocalizedStringKey = LocalizedStringKey("emojis-list")
+    static let addEmoji: LocalizedStringKey = LocalizedStringKey("add-emoji")
+    static let addSet: LocalizedStringKey = LocalizedStringKey("add-set")
+    static let editSet: LocalizedStringKey = LocalizedStringKey("edit-set")
+    static let cancel: LocalizedStringKey = LocalizedStringKey("cancel")
+    static let save: LocalizedStringKey = LocalizedStringKey("save")
     
-    static var insertName: String {
-        String(localized: "insert-name", comment: "Placeholder for insert emoji set name.")
-    }
-    
-    static func pairsCount(_ value: Int) -> String {
-        String(localized: "pairs-count \(value)", comment: "The pluralized pairs count.")
-    }
-    
-    static var color: String {
-        String(localized: "color", comment: "Color of emoji set.")
-    }
-    
-    static var emojisList: String {
-        String(localized: "emojis-list", comment: "Header for the emojis in set.")
-    }
-    
-    static var addEmoji: String {
-        String(localized: "add-emoji", comment: "Header of add emoji section.")
-    }
-    
-    static var insertEmojis: String {
-        String(localized: "insert-emojis", comment: "Placeholder for insert emojis.")
-    }
-    
-    static var addSet: String {
-        String(localized: "add-set", comment: "Add emoji view title.")
-    }
-    
-    static var editSet: String {
-        String(localized: "edit-set", comment: "Edit emoji view title.")
-    }
-    
-    static var cancel: String {
-        String(localized: "cancel", comment: "Cancel edit/add toolbar button.")
-    }
-    
-    static var save: String {
-        String(localized: "save", comment: "Save edit/add toolbar button.")
-    }
+    static func pairsCount(_ value: Int) -> LocalizedStringKey { LocalizedStringKey("pairs-count \(value)") }
     
     /* Game View */
     
-    static func score(_ value: Int) -> String {
-        String.localizedStringWithFormat(String(localized: "score %lld", comment: "Score of the game."), value)
-    }
+    static let restart: LocalizedStringKey = LocalizedStringKey("restart")
+    static let ok: LocalizedStringKey = LocalizedStringKey("ok")
+    static let newGame: LocalizedStringKey = LocalizedStringKey("new-game")
     
-    static var restart: String {
-        String(localized: "restart", comment: "Restart game toolbar button.")
-    }
-    
-    static func congratulations(_ value: Int) -> String {
-        String.localizedStringWithFormat(String(localized: "congratulations %lld", comment: "Congratulations title alert with final score."), value)
-    }
-    
-    static var ok: String {
-        String(localized: "ok", comment: "Alert dialog Ok button.")
-    }
-    
-    static var newGame: String {
-        String(localized: "new-game", comment: "Alert dialog new game button.")
-    }
+    static func score(_ value: Int) -> LocalizedStringKey { LocalizedStringKey("score \(value)") }
+    static func congratulations(_ value: Int) -> LocalizedStringKey { LocalizedStringKey("congratulations \(value)") }
 }

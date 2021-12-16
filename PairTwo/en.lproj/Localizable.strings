@@ -38,9 +38,6 @@
 /* Header of add emoji section. */
 "add-emoji" = "Add emoji";
 
-/* Placeholder for insert emojis. */
-"insert-emojis" = "Insert emojis";
-
 /* Add emoji view title. */
 "add-set" = "Add new set";
 

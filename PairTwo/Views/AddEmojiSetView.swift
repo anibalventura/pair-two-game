@@ -61,7 +61,7 @@ struct AddEmojiSetView: View {
                 }
                 
                 Section(header: Text(Localization.addEmoji)) {
-                    EmojiTextField(text: $newEmojis, placeholder: Localization.insertEmojis)
+                    EmojiTextField(text: $newEmojis)
                 }
             }
             .navigationTitle(itemToEdit != nil ? Localization.editSet : Localization.addSet)
