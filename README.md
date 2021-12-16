@@ -8,7 +8,7 @@
 
 <p> <img src="repository_banner.png" align="center"/> </p>
 
-Easy to play memorize game with emojis, build with SwiftUI and MVVM pattern.
+Easy to play memory game with emojis, build with SwiftUI and MVVM pattern.
 
 ## Features
 
