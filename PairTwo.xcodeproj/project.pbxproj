@@ -22,11 +22,14 @@
 		C56CDCFD2768E950000CC474 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDCFA2768E950000CC474 /* CardView.swift */; };
 		C56CDD042768F4E2000CC474 /* EmojiSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD032768F4E2000CC474 /* EmojiSetViewModel.swift */; };
 		C56CDD082768FBAD000CC474 /* AddEmojiSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */; };
+		C5B73DB0276B714A001B90C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5B73DB2276B714A001B90C8 /* Localizable.strings */; };
+		C5B73DB5276B7775001B90C8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B73DB4276B7775001B90C8 /* Localization.swift */; };
+		C5B73DB9276B93E5001B90C8 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = C5B73DBB276B93E5001B90C8 /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C528B5F927694BDE0070227A /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
-		C56CDCD227681006000CC474 /* PairTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C56CDCD227681006000CC474 /* Pair Two.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pair Two.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56CDCD527681007000CC474 /* PairTwoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairTwoApp.swift; sourceTree = "<group>"; };
 		C56CDCD927681009000CC474 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C56CDCDC27681009000CC474 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -41,6 +44,11 @@
 		C56CDCFA2768E950000CC474 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C56CDD032768F4E2000CC474 /* EmojiSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSetViewModel.swift; sourceTree = "<group>"; };
 		C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiSetView.swift; sourceTree = "<group>"; };
+		C5B73DB1276B714A001B90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C5B73DB4276B7775001B90C8 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		C5B73DBA276B93E5001B90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		C5B73DBC276B94B7001B90C8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = es; path = es.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		C5B73DBD276B9556001B90C8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +73,7 @@
 		C56CDCD327681006000CC474 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C56CDCD227681006000CC474 /* PairTwo.app */,
+				C56CDCD227681006000CC474 /* Pair Two.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +87,8 @@
 				C56CDCD527681007000CC474 /* PairTwoApp.swift */,
 				C56CDCD927681009000CC474 /* Assets.xcassets */,
 				C56CDCDB27681009000CC474 /* Preview Content */,
+				C5B73DB2276B714A001B90C8 /* Localizable.strings */,
+				C5B73DBB276B93E5001B90C8 /* Localizable.stringsdict */,
 			);
 			path = PairTwo;
 			sourceTree = "<group>";
@@ -127,6 +137,7 @@
 			children = (
 				C528B5F927694BDE0070227A /* EmojiPicker.swift */,
 				C56CDCF52768E5A6000CC474 /* Extensions.swift */,
+				C5B73DB4276B7775001B90C8 /* Localization.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -165,7 +176,7 @@
 			);
 			name = PairTwo;
 			productName = PairTwo;
-			productReference = C56CDCD227681006000CC474 /* PairTwo.app */;
+			productReference = C56CDCD227681006000CC474 /* Pair Two.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,6 +201,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = C56CDCC927681006000CC474;
 			productRefGroup = C56CDCD327681006000CC474 /* Products */;
@@ -207,6 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56CDCDD27681009000CC474 /* Preview Assets.xcassets in Resources */,
+				C5B73DB9276B93E5001B90C8 /* Localizable.stringsdict in Resources */,
+				C5B73DB0276B714A001B90C8 /* Localizable.strings in Resources */,
 				C56CDCDA27681009000CC474 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +236,7 @@
 				C56CDCF62768E5A6000CC474 /* Extensions.swift in Sources */,
 				C56CDD042768F4E2000CC474 /* EmojiSetViewModel.swift in Sources */,
 				C56CDD082768FBAD000CC474 /* AddEmojiSetView.swift in Sources */,
+				C5B73DB5276B7775001B90C8 /* Localization.swift in Sources */,
 				C56CDCFB2768E950000CC474 /* CardifyModifier.swift in Sources */,
 				C56CDCFC2768E950000CC474 /* AspectVGridView.swift in Sources */,
 				C56CDCE72768CBA1000CC474 /* GameView.swift in Sources */,
@@ -236,11 +251,33 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		C5B73DB2276B714A001B90C8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5B73DB1276B714A001B90C8 /* en */,
+				C5B73DBD276B9556001B90C8 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C5B73DBB276B93E5001B90C8 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5B73DBA276B93E5001B90C8 /* en */,
+				C5B73DBC276B94B7001B90C8 /* es */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		C56CDCDE27681009000CC474 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -302,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -375,7 +413,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anibalventura.PairTwo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pair Two";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -404,7 +442,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.anibalventura.PairTwo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pair Two";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

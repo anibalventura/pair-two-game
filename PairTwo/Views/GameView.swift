@@ -38,26 +38,26 @@ struct GameView: View {
             
             Spacer()
             
-            Text("Score: \(gameViewModel.getScore())")
+            Text(Localization.score(gameViewModel.getScore()))
                 .font(.title2)
                 .padding()
         }
         .navigationTitle("\(gameViewModel.emojiSet.name)")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Restart") {
+                Button(Localization.restart) {
                     withAnimation(Animation.spring()) {
                         gameViewModel.restart()
                     }
                 }
             }
         }
-        .alert("Congratulations! Scrore: \(gameViewModel.getScore())", isPresented: $gameCompleteAlert) {
-            Button("Ok", role: .cancel) {
+        .alert(Localization.congratulations(gameViewModel.getScore()), isPresented: $gameCompleteAlert) {
+            Button(Localization.ok, role: .cancel) {
                 gameViewModel.restart()
                 presentationMode.wrappedValue.dismiss()
             }
-            Button("New game") {
+            Button(Localization.newGame) {
                 withAnimation {
                     gameViewModel.restart()
                 }
@@ -84,9 +84,11 @@ struct GameView_Previews: PreviewProvider {
         ))
         
         GameView(previreGameViewModel)
+            .environment(\.locale, .init(identifier: "en"))
             .preferredColorScheme(.dark)
         
         GameView(previreGameViewModel)
+            .environment(\.locale, .init(identifier: "es"))
             .preferredColorScheme(.light)
     }
 }

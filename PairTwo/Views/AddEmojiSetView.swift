@@ -32,18 +32,18 @@ struct AddEmojiSetView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Set")) {
-                    TextField("Insert name", text: $name)
+                Section(header: Text(Localization.set)) {
+                    TextField(Localization.insertName, text: $name)
                     
                     if itemToEdit != nil {
-                        Stepper("\(pairCount) Pairs", value: $pairCount, in: 0...emojisInSet.count)
+                        Stepper(Localization.pairsCount(pairCount), value: $pairCount, in: 0...emojisInSet.count)
                     }
                     
-                    ColorPicker("Color", selection: $color, supportsOpacity: false)
+                    ColorPicker(Localization.color, selection: $color, supportsOpacity: false)
                 }
                 
                 if itemToEdit != nil {
-                    Section(header: Text("Emojis - Tap to remove")) {
+                    Section(header: Text(Localization.emojisList)) {
                         LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 7), spacing: 10) {
                             ForEach(emojisInSet, id: \.self) { emoji in
                                 Text(emoji)
@@ -60,11 +60,11 @@ struct AddEmojiSetView: View {
                     }
                 }
                 
-                Section(header: Text("Add emoji")) {
-                    EmojiTextField(text: $newEmojis, placeholder: "Insert emojis")
+                Section(header: Text(Localization.addEmoji)) {
+                    EmojiTextField(text: $newEmojis, placeholder: Localization.insertEmojis)
                 }
             }
-            .navigationTitle(itemToEdit != nil ? "Edit" : "Add")
+            .navigationTitle(itemToEdit != nil ? Localization.editSet : Localization.addSet)
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 // Make keyboard dismissable with swipe down.
@@ -72,13 +72,13 @@ struct AddEmojiSetView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button(Localization.cancel) {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                    Button(Localization.save) {
                         saveItem()
                         
                         presentationMode.wrappedValue.dismiss()
@@ -130,9 +130,11 @@ struct AddEmojiSetView_Previews: PreviewProvider {
                      "📁", "⌚", "📱", "📲", "💻", "⌨️", "🖥", "🖨", "🖱"])
 
         AddEmojiSetView(viewModel: previewEmojiSetViewModel, itemToEdit: previewEmojiSet)
+            .environment(\.locale, .init(identifier: "en"))
             .preferredColorScheme(.dark)
 
         AddEmojiSetView(viewModel: previewEmojiSetViewModel, itemToEdit: previewEmojiSet)
             .preferredColorScheme(.light)
+            .environment(\.locale, .init(identifier: "es"))
     }
 }
