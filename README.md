@@ -1,4 +1,4 @@
-# Linkinbio
+# Pair Two
 
 [![iOS](https://img.shields.io/static/v1?label=iOS&message=15&color=000000)](https://www.apple.com/ios/ios-15/)
 [![SwiftUI](https://img.shields.io/static/v1?label=SwiftUI&message=3.0&color=blue)](https://developer.apple.com/xcode/swiftui/)
