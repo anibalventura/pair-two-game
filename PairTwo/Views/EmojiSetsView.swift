@@ -36,7 +36,7 @@ struct EmojiSetsView: View {
                         showAddEditSheet.toggle()
                         itemToEdit = emojiSet
                     } label: {
-                        Label(Localization.edit, systemImage: "pencil")
+                        Label(Locale.SetsView.edit, systemImage: "pencil")
                     }
                     .tint(.orange)
                     
@@ -45,11 +45,11 @@ struct EmojiSetsView: View {
                             emojiSetViewModel.delete(emojiSet)
                         }
                     } label: {
-                        Label(Localization.delete, systemImage: "trash.fill")
+                        Label(Locale.SetsView.delete, systemImage: "trash.fill")
                     }
                 }
             }
-            .navigationTitle(Localization.appName)
+            .navigationTitle(Locale.appName)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -76,7 +76,6 @@ struct EmojiSetsView_Previews: PreviewProvider {
             .environment(\.locale, .init(identifier: "en"))
             .preferredColorScheme(.dark)
             
-        
         EmojiSetsView()
             .environment(\.locale, .init(identifier: "es"))
             .preferredColorScheme(.light)

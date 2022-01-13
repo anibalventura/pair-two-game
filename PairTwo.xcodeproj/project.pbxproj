@@ -23,7 +23,7 @@
 		C56CDD042768F4E2000CC474 /* EmojiSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD032768F4E2000CC474 /* EmojiSetViewModel.swift */; };
 		C56CDD082768FBAD000CC474 /* AddEmojiSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */; };
 		C5B73DB0276B714A001B90C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5B73DB2276B714A001B90C8 /* Localizable.strings */; };
-		C5B73DB5276B7775001B90C8 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B73DB4276B7775001B90C8 /* Localization.swift */; };
+		C5B73DB5276B7775001B90C8 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B73DB4276B7775001B90C8 /* Locale.swift */; };
 		C5B73DB9276B93E5001B90C8 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = C5B73DBB276B93E5001B90C8 /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 		C56CDD032768F4E2000CC474 /* EmojiSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSetViewModel.swift; sourceTree = "<group>"; };
 		C56CDD072768FBAD000CC474 /* AddEmojiSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiSetView.swift; sourceTree = "<group>"; };
 		C5B73DB1276B714A001B90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C5B73DB4276B7775001B90C8 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		C5B73DB4276B7775001B90C8 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		C5B73DBA276B93E5001B90C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		C5B73DBC276B94B7001B90C8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = es; path = es.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		C5B73DBD276B9556001B90C8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -82,15 +82,14 @@
 		C56CDCD427681006000CC474 /* PairTwo */ = {
 			isa = PBXGroup;
 			children = (
-				C56CDCFE2768EBEE000CC474 /* Data */,
+				C5E1B80E2790E61800B3039E /* App */,
+				C56CDCEC2768CD54000CC474 /* Models */,
 				C56CDCE327681088000CC474 /* Views */,
+				C56CDCF12768E3BA000CC474 /* ViewModels */,
 				C56CDCF42768E595000CC474 /* Helpers */,
 				C56CDCDB27681009000CC474 /* Preview Content */,
-				C56CDCD527681007000CC474 /* PairTwoApp.swift */,
 				C56CDCD927681009000CC474 /* Assets.xcassets */,
 				C5B73DBE276BDD89001B90C8 /* Info.plist */,
-				C5B73DB2276B714A001B90C8 /* Localizable.strings */,
-				C5B73DBB276B93E5001B90C8 /* Localizable.stringsdict */,
 			);
 			path = PairTwo;
 			sourceTree = "<group>";
@@ -137,7 +136,7 @@
 			children = (
 				C528B5F927694BDE0070227A /* EmojiPicker.swift */,
 				C56CDCF52768E5A6000CC474 /* Extensions.swift */,
-				C5B73DB4276B7775001B90C8 /* Localization.swift */,
+				C5B73DB4276B7775001B90C8 /* Locale.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -152,13 +151,14 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		C56CDCFE2768EBEE000CC474 /* Data */ = {
+		C5E1B80E2790E61800B3039E /* App */ = {
 			isa = PBXGroup;
 			children = (
-				C56CDCEC2768CD54000CC474 /* Models */,
-				C56CDCF12768E3BA000CC474 /* ViewModels */,
+				C56CDCD527681007000CC474 /* PairTwoApp.swift */,
+				C5B73DB2276B714A001B90C8 /* Localizable.strings */,
+				C5B73DBB276B93E5001B90C8 /* Localizable.stringsdict */,
 			);
-			path = Data;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +171,7 @@
 				C56CDCCE27681006000CC474 /* Sources */,
 				C56CDCCF27681006000CC474 /* Frameworks */,
 				C56CDCD027681006000CC474 /* Resources */,
+				C5E1B8102790E68500B3039E /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -206,6 +207,9 @@
 				es,
 			);
 			mainGroup = C56CDCC927681006000CC474;
+			packageReferences = (
+				C5E1B80F2790E66D00B3039E /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = C56CDCD327681006000CC474 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,6 +233,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C5E1B8102790E68500B3039E /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C56CDCCE27681006000CC474 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -238,7 +263,7 @@
 				C56CDCF62768E5A6000CC474 /* Extensions.swift in Sources */,
 				C56CDD042768F4E2000CC474 /* EmojiSetViewModel.swift in Sources */,
 				C56CDD082768FBAD000CC474 /* AddEmojiSetView.swift in Sources */,
-				C5B73DB5276B7775001B90C8 /* Localization.swift in Sources */,
+				C5B73DB5276B7775001B90C8 /* Locale.swift in Sources */,
 				C56CDCFB2768E950000CC474 /* CardifyModifier.swift in Sources */,
 				C56CDCFC2768E950000CC474 /* AspectVGridView.swift in Sources */,
 				C56CDCE72768CBA1000CC474 /* GameView.swift in Sources */,
@@ -473,6 +498,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C5E1B80F2790E66D00B3039E /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = C56CDCCA27681006000CC474 /* Project object */;
 }

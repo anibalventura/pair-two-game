@@ -22,6 +22,6 @@ extension Array {
 extension RangeReplaceableCollection where Element: Hashable {
     var squeezed: Self {
         var set = Set<Element>()
-        return filter{ set.insert($0).inserted }
+        return filter { set.insert($0).inserted }
     }
 }

@@ -21,7 +21,9 @@ struct AspectVGridView<Item, ItemView>: View where Item: Identifiable, ItemView:
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                let width: CGFloat = widthThatFits(itemCount: items.count, in: geometry.size, itemAspectRatio: aspectRatio)
+                let width: CGFloat = widthThatFits(
+                    itemCount: items.count, in: geometry.size, itemAspectRatio: aspectRatio
+                )
                 
                 LazyVGrid(columns: [adaptiveGridItem(width: width)], spacing: 0) {
                     ForEach(items) { item in
@@ -45,7 +47,7 @@ struct AspectVGridView<Item, ItemView>: View where Item: Identifiable, ItemView:
         var rowCount = itemCount
         
         repeat {
-            let itemWidth = size.width / CGFloat (columnCount)
+            let itemWidth = size.width / CGFloat(columnCount)
             let itemHeight = itemWidth / itemAspectRatio
             if CGFloat(rowCount) * itemHeight < size.height {
                 break
@@ -58,6 +60,6 @@ struct AspectVGridView<Item, ItemView>: View where Item: Identifiable, ItemView:
             columnCount = itemCount
         }
         
-        return floor(size.width / CGFloat (columnCount))
+        return floor(size.width / CGFloat(columnCount))
     }
 }

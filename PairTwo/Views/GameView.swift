@@ -38,26 +38,26 @@ struct GameView: View {
             
             Spacer()
             
-            Text(Localization.score(gameViewModel.getScore()))
+            Text(Locale.GameView.score(gameViewModel.getScore()))
                 .font(.title2)
                 .padding()
         }
         .navigationTitle("\(gameViewModel.emojiSet.name)")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(Localization.restart) {
+                Button(Locale.GameView.restart) {
                     withAnimation(Animation.spring()) {
                         gameViewModel.restart()
                     }
                 }
             }
         }
-        .alert(Localization.congratulations(gameViewModel.getScore()), isPresented: $gameCompleteAlert) {
-            Button(Localization.ok, role: .cancel) {
+        .alert(Locale.GameView.congratulations(gameViewModel.getScore()), isPresented: $gameCompleteAlert) {
+            Button(Locale.GameView.ok, role: .cancel) {
                 gameViewModel.restart()
                 presentationMode.wrappedValue.dismiss()
             }
-            Button(Localization.newGame) {
+            Button(Locale.GameView.newGame) {
                 withAnimation {
                     gameViewModel.restart()
                 }

@@ -25,7 +25,7 @@ class UIEmojiTextField: UITextField {
     
     override var textInputMode: UITextInputMode? {
         for mode in UITextInputMode.activeInputModes {
-            if mode.primaryLanguage == "emoji" {
+            while mode.primaryLanguage == "emoji" {
                 self.keyboardType = .default // do not remove this
                 return mode
             }

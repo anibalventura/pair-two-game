@@ -41,8 +41,7 @@ struct Cards {
         if let chosenIndex =
             cards.firstIndex(where: { $0.id == card.id }),
            !cards[chosenIndex].isFaceUp,
-           !cards[chosenIndex].isMatched
-        {
+           !cards[chosenIndex].isMatched {
             if let potentialMatchIndex = indexOfFisrtCard {
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true
@@ -68,6 +67,6 @@ struct Cards {
             allFaceUp.append(card.isMatched)
         }
         
-        return allFaceUp.allSatisfy{ $0 == true }
+        return allFaceUp.allSatisfy { $0 == true }
     }
 }
