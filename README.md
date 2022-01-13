@@ -17,17 +17,23 @@ Easy to play memory game with emojis, build with SwiftUI and MVVM pattern.
 - Reset current game.
 - Animations.
 - Splash screen.
-- Dark mode support.
+- Light/Dark mode.
 - Localization support (English/Spanish).
 
 ## Development
 
-- iOS Development Target **15.0**
-- SwiftUI **3.0**
+- [SwiftUI](https://developer.apple.com/xcode/swiftui/)
+- MVVM
+- [Swift Package Manager](https://www.swift.org/package-manager/)
+- Development Target **15.0**
 - Swift **5.5**
 - Xcode **13.2**
 
-## Build
+### Dependencies
+
+- [SwiftLint](https://github.com/realm/SwiftLint)
+
+### Build
 
 Clone the repository and run!
 
